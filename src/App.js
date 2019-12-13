@@ -1,26 +1,21 @@
 import React from "react";
-import styled, { css } from "styled-components";
-// tagged templace literal 이 되기위해서는 {css} 를 불러와야한다
+import styled from "styled-components";
+import Button from "./components/Button";
 
-const Circle = styled.div`
-  width: 5rem;
-  height: 5rem;
-  background: ${props => props.color};
-  border-radius: 50%;
-  ${props =>
-    props.huge &&
-    // template literal에서는 이 안에 ${props}를 사용할수 없으므로 {css}를 사용 tagged로 바꿈
-    css`
-      width: 10rem;
-      height: 10rem;
-    `}
+const AppBlock = styled.div`
+  width: 512px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  border: 1px solid black;
+  padding: 1rem;
 `;
 
 function App() {
   return (
     <>
-      <Circle color="black" />
-      <Circle color="blue" huge />
+      <AppBlock>
+        <Button>BUTTON</Button>
+      </AppBlock>
     </>
   );
 }
