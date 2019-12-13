@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Button from "./components/Button";
 
 const AppBlock = styled.div`
@@ -10,12 +10,27 @@ const AppBlock = styled.div`
   padding: 1rem;
 `;
 
+// 색상들을 밖을로 빼내 단순하게 만들어 사용함 - ThemeProvider
+const palette = {
+  blue: "#228be6",
+  gray: "#496057",
+  pink: "#f06595"
+};
+
 function App() {
   return (
     <>
-      <AppBlock>
-        <Button>BUTTON</Button>
-      </AppBlock>
+      <ThemeProvider
+        theme={{
+          palette
+        }}
+      >
+        <AppBlock>
+          <Button>BUTTON</Button>
+          <Button color="gray">BUTTON</Button>
+          <Button color="pink">BUTTON</Button>
+        </AppBlock>
+      </ThemeProvider>
     </>
   );
 }
